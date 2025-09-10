@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dsmqp576aorbr"
+path="res://.godot/imported/BoneHit 3.wav-e7ce2b7df9c80ff66f0a53bc1014c863.sample"
+
+[deps]
+
+source_file="res://SFX/Bones/BoneHit 3.wav"
+dest_files=["res://.godot/imported/BoneHit 3.wav-e7ce2b7df9c80ff66f0a53bc1014c863.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

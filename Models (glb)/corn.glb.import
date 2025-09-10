@@ -1,0 +1,52 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bnt8jap81vv7n"
+path="res://.godot/imported/corn.glb-1fcb505f1762a797e43da61556ad9b8f.scn"
+
+[deps]
+
+source_file="res://Models (glb)/corn.glb"
+dest_files=["res://.godot/imported/corn.glb-1fcb505f1762a797e43da61556ad9b8f.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"meshes": {
+"corn_Plane": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": true,
+"save_to_file/path": "res://Meshes/CornMesh.res"
+}
+},
+"nodes": {
+"PATH:Plane": {
+"generate/navmesh": 1
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

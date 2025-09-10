@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://f0okpdojvnyv"]
+
+[ext_resource type="PackedScene" uid="uid://cdr1s8ay0m70u" path="res://Scenes/Item.tscn" id="1_yio5a"]
+[ext_resource type="Script" path="res://Scripts/WeaponPickup.gd" id="2_5xc6k"]
+[ext_resource type="PackedScene" uid="uid://bwaip8vjyi6sk" path="res://Scenes/Revolver.tscn" id="3_8du3m"]
+[ext_resource type="PackedScene" uid="uid://c1inuxe6lwgw" path="res://Models (glb)/Weapon Objects/revolver-object.glb" id="4_iy5o6"]
+[ext_resource type="AudioStream" uid="uid://yhwn040ncft3" path="res://SFX/Guns/Pickup.wav" id="5_63ht0"]
+
+[node name="Revolver" instance=ExtResource("1_yio5a")]
+
+[node name="MeshInstance3D" parent="." index="1"]
+mesh = null
+
+[node name="revolver-object" parent="MeshInstance3D" index="0" instance=ExtResource("4_iy5o6")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="StaticBody3D" parent="MeshInstance3D" index="1" node_paths=PackedStringArray("interact_sound")]
+script = ExtResource("2_5xc6k")
+weapon = ExtResource("3_8du3m")
+item_name = "revolver"
+interact_sound = NodePath("../../Interact Sound")
+
+[node name="Interact Sound" parent="." index="2"]
+stream = ExtResource("5_63ht0")

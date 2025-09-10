@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://cf1k1budpf7xu"]
+
+[ext_resource type="PackedScene" uid="uid://cdr1s8ay0m70u" path="res://Scenes/Item.tscn" id="1_qpxjv"]
+[ext_resource type="PackedScene" uid="uid://biif5nal5g623" path="res://Models (glb)/Weapon Objects/LMG-object.glb" id="2_ybxy8"]
+[ext_resource type="Script" path="res://Scripts/WeaponPickup.gd" id="3_whutt"]
+[ext_resource type="PackedScene" uid="uid://dewhf1qfal4y6" path="res://Scenes/LMG.tscn" id="4_wnmhx"]
+[ext_resource type="AudioStream" uid="uid://yhwn040ncft3" path="res://SFX/Guns/Pickup.wav" id="5_7cqp8"]
+
+[node name="Item" instance=ExtResource("1_qpxjv")]
+
+[node name="MeshInstance3D" parent="." index="1"]
+mesh = null
+
+[node name="LMG-object" parent="MeshInstance3D" index="0" instance=ExtResource("2_ybxy8")]
+
+[node name="StaticBody3D" parent="MeshInstance3D" index="1" node_paths=PackedStringArray("interact_sound")]
+script = ExtResource("3_whutt")
+weapon = ExtResource("4_wnmhx")
+item_name = "lmg"
+interact_sound = NodePath("../../Interact Sound")
+
+[node name="Interact Sound" parent="." index="2"]
+stream = ExtResource("5_7cqp8")

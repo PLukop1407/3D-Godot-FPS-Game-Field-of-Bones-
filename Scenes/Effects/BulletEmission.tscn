@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://p3ldmhyylwt3"]
+
+[ext_resource type="Script" path="res://Scenes/Effects/BulletEmission.gd" id="1_fn3d1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_76lh3"]
+albedo_color = Color(0.593868, 0.587782, 0.585168, 1)
+emission_enabled = true
+emission = Color(0.56796, 0.547597, 0.548546, 1)
+emission_energy_multiplier = 0.4
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qdrge"]
+direction = Vector3(0, 0, -1)
+spread = 25.0
+initial_velocity_min = 6.0
+initial_velocity_max = 6.0
+angular_velocity_min = 6.0
+angular_velocity_max = 6.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_a68mh"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plt3m"]
+albedo_color = Color(0.262647, 0.15021, 0.0319652, 1)
+emission_enabled = true
+emission = Color(0.21116, 0.120258, 0.0309616, 1)
+emission_energy_multiplier = 0.4
+
+[node name="Bullet" type="Node3D"]
+script = ExtResource("1_fn3d1")
+
+[node name="BloodSplatter" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_76lh3")
+emitting = false
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_qdrge")
+draw_pass_1 = SubResource("BoxMesh_a68mh")
+
+[node name="TerrainSplatter" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_plt3m")
+emitting = false
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_qdrge")
+draw_pass_1 = SubResource("BoxMesh_a68mh")
+
+[node name="Timer" type="Timer" parent="."]

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b6uo5pxmcst0v"
+path="res://.godot/imported/double barreled shotgun-object.obj-1851ca167c74929e6ddfc9deb073cc46.mesh"
+
+[deps]
+
+files=["res://.godot/imported/double barreled shotgun-object.obj-1851ca167c74929e6ddfc9deb073cc46.mesh"]
+
+source_file="res://Models (glb)/Weapon Objects/double barreled shotgun-object.obj"
+dest_files=["res://.godot/imported/double barreled shotgun-object.obj-1851ca167c74929e6ddfc9deb073cc46.mesh", "res://.godot/imported/double barreled shotgun-object.obj-1851ca167c74929e6ddfc9deb073cc46.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

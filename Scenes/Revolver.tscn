@@ -1,0 +1,123 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwaip8vjyi6sk"]
+
+[ext_resource type="PackedScene" uid="uid://c4igat524encw" path="res://Models (glb)/revolver.glb" id="1_2x3gt"]
+[ext_resource type="Script" path="res://Scripts/Revolver.gd" id="2_25ruj"]
+[ext_resource type="AudioStream" uid="uid://cmoa5h4aupytt" path="res://SFX/Guns/Shotgun/ShotgunShot.wav" id="4_2i5hx"]
+[ext_resource type="PackedScene" uid="uid://p3ldmhyylwt3" path="res://Scenes/Effects/BulletEmission.tscn" id="4_u2rpf"]
+[ext_resource type="AudioStream" uid="uid://o8whibkjehpf" path="res://SFX/Guns/DryFire.wav" id="5_ndot0"]
+[ext_resource type="AudioStream" uid="uid://bo238mwbtntya" path="res://SFX/Guns/Shotgun/Reload.wav" id="6_sgx68"]
+
+[node name="revolver" instance=ExtResource("1_2x3gt")]
+script = ExtResource("2_25ruj")
+bullet_impact = ExtResource("4_u2rpf")
+weapon_name = "Revolver"
+fire_rate = 6.0
+loaded_ammo = 6
+reserve_ammo = 24
+max_ammo = 6
+damage = 65
+weapon_range = 300.0
+
+[node name="viper" parent="." index="0"]
+transform = Transform3D(-0.963066, 0.00102661, 0.269263, 0.00459637, -0.999784, 0.0202515, 0.269226, 0.0207412, 0.962854, -0.155584, -0.089825, -0.425458)
+
+[node name="Skeleton3D" parent="viper/manBones" index="0"]
+bones/0/position = Vector3(0.0426247, -0.0668259, -0.0369546)
+bones/0/rotation = Quaternion(1.50542e-07, 0.0850782, 0.996374, 1.13779e-07)
+bones/1/position = Vector3(-0.258764, 0.00160939, 0.29801)
+bones/2/position = Vector3(0.290251, -0.0184018, -0.288788)
+bones/2/rotation = Quaternion(0.0150944, -0.0937086, 0.986282, 0.135052)
+bones/4/rotation = Quaternion(-0.28387, 0.804807, 0.454575, 0.255078)
+bones/5/rotation = Quaternion(-0.341774, 0.480862, 0.759358, -0.274478)
+bones/6/position = Vector3(-0.168521, 0.170915, 0.100978)
+bones/6/rotation = Quaternion(0.390627, 0.141531, 0.909601, 0.00247216)
+bones/7/position = Vector3(-0.138145, -0.103969, 0.175261)
+bones/7/rotation = Quaternion(0.350526, -0.225328, 0.55777, -0.71781)
+bones/8/position = Vector3(0.0426385, -0.0668299, -0.0369682)
+bones/8/rotation = Quaternion(1.546e-07, 0.0850781, 0.996374, 1.49012e-07)
+bones/9/position = Vector3(0.0600151, -0.0742283, -0.0595782)
+bones/9/rotation = Quaternion(0.229889, -0.0699481, 0.451873, -0.85911)
+bones/10/position = Vector3(0.0818993, -0.0599402, -0.0730516)
+bones/10/rotation = Quaternion(0.249509, -0.0471161, 0.604168, -0.755318)
+bones/11/position = Vector3(0.0375071, -0.131768, -0.0151185)
+bones/11/rotation = Quaternion(0.0759287, 0.0335901, 0.943396, -0.321109)
+bones/12/position = Vector3(0.0594658, -0.160216, -0.0145933)
+bones/12/rotation = Quaternion(-0.0930835, 0.0217338, 0.842365, -0.530363)
+bones/13/position = Vector3(0.0343751, -0.141982, -0.0479952)
+bones/13/rotation = Quaternion(-0.00165921, 0.0887399, 0.942112, -0.323339)
+bones/14/position = Vector3(0.0552613, -0.168569, -0.0422234)
+bones/14/rotation = Quaternion(-0.138268, 0.115996, 0.804475, -0.565904)
+bones/15/position = Vector3(0.0651595, 0.0311218, 0.158997)
+bones/15/rotation = Quaternion(-0.569998, -0.546111, 0.612023, -0.0478832)
+bones/16/position = Vector3(0.260221, -0.0831187, -0.0167928)
+bones/16/rotation = Quaternion(-0.253978, -0.746455, 0.56607, 0.240551)
+bones/17/position = Vector3(0.290267, -0.0183964, -0.288844)
+bones/17/rotation = Quaternion(0.0150944, -0.0937086, 0.986282, 0.135052)
+bones/18/position = Vector3(0.284521, -0.0156273, -0.32018)
+bones/18/rotation = Quaternion(-0.233953, -0.017444, 0.704096, 0.670232)
+bones/19/position = Vector3(0.257009, -0.0185962, -0.330124)
+bones/19/rotation = Quaternion(-0.202575, 0.122305, 0.970886, 0.0372331)
+bones/20/position = Vector3(0.277028, -0.085781, -0.291031)
+bones/20/rotation = Quaternion(0.0260825, -0.120602, 0.717154, 0.685905)
+bones/21/position = Vector3(0.241443, -0.0868585, -0.295962)
+bones/21/rotation = Quaternion(0.252912, -0.109349, 0.288285, 0.917044)
+bones/22/position = Vector3(0.278683, -0.0844078, -0.325533)
+bones/22/rotation = Quaternion(0.0593399, -0.091327, 0.953577, 0.280766)
+bones/23/position = Vector3(0.259945, -0.112727, -0.330364)
+bones/23/rotation = Quaternion(0.228841, -0.0742907, 0.907055, 0.345492)
+
+[node name="Cube_001" parent="viper/manBones/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, 0, -1.11022e-16, 1, 1.32349e-23, 0, 0, 1, 0, 0, 0)
+layers = 2
+
+[node name="Skeleton3D" parent="viper" index="1"]
+bones/0/position = Vector3(-0.298949, -0.0213132, -0.139401)
+bones/0/rotation = Quaternion(0.0704067, -0.845419, 0.516526, 0.116232)
+bones/1/position = Vector3(0.0954105, -0.117486, 0.301022)
+bones/1/rotation = Quaternion(0.1386, 0.811346, 0.567898, 2.43852e-05)
+bones/3/position = Vector3(-0.313992, 0.00299613, -0.193297)
+bones/3/rotation = Quaternion(0.0670845, -0.859717, 0.492362, 0.11818)
+bones/4/position = Vector3(-0.313667, 0.0834822, -0.192443)
+bones/4/rotation = Quaternion(0.10619, -0.615252, 0.77653, 0.084797)
+bones/5/position = Vector3(-0.320922, 0.0771623, -0.218367)
+bones/5/rotation = Quaternion(-0.984138, -0.0151276, 0.135048, -0.11404)
+bones/6/position = Vector3(-0.320663, 0.0846091, -0.217469)
+bones/6/rotation = Quaternion(0.0151276, -0.984138, 0.114041, 0.135049)
+bones/7/position = Vector3(-0.32061, 0.0721425, -0.217231)
+bones/7/rotation = Quaternion(-0.792034, -0.0911154, -0.59954, -0.0702315)
+
+[node name="speedloader_2" parent="viper/Skeleton3D" index="0"]
+transform = Transform3D(-0.961873, -0.224877, -0.15566, 0.223207, -0.316564, -0.921936, 0.158046, -0.92153, 0.354689, 0.0993426, -0.111951, 0.317136)
+
+[node name="speedloader_2" parent="viper/Skeleton3D/speedloader_2" index="0"]
+transform = Transform3D(1, 0, 3.72529e-09, 7.45058e-09, 1, 0, -5.58794e-09, 0, 1, 0, 0, 0)
+layers = 2
+
+[node name="bullets" parent="viper/Skeleton3D" index="1"]
+transform = Transform3D(1, 4.65661e-10, 0, -9.31323e-10, 1, -1.86265e-09, 0, 3.72529e-09, 1, 0, 0, 0)
+layers = 2
+
+[node name="viperMesh" parent="viper/Skeleton3D" index="2"]
+transform = Transform3D(1, 4.65661e-10, 0, -9.31323e-10, 1, -1.86265e-09, 0, 3.72529e-09, 1, 0, 0, 0)
+layers = 2
+
+[node name="barrel" type="RayCast3D" parent="." index="2"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0944115, 0.0888174, -0.981773)
+target_position = Vector3(0, 0, 0.5)
+
+[node name="shoot" type="AudioStreamPlayer3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.160014, -0.0295746, -0.334051)
+stream = ExtResource("4_2i5hx")
+volume_db = 2.0
+pitch_scale = 0.7
+
+[node name="dryfire" type="AudioStreamPlayer3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.160014, -0.0295746, -0.334051)
+stream = ExtResource("5_ndot0")
+
+[node name="altFire" type="AudioStreamPlayer3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.160014, -0.0295746, -0.334051)
+
+[node name="reload" type="AudioStreamPlayer3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.160014, -0.0295746, -0.334051)
+stream = ExtResource("6_sgx68")

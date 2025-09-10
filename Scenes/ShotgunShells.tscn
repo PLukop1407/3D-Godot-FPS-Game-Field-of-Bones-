@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://oroge83i8t2a"]
+
+[ext_resource type="PackedScene" uid="uid://cdr1s8ay0m70u" path="res://Scenes/Item.tscn" id="1_bihye"]
+[ext_resource type="PackedScene" uid="uid://qcdqdlixcqlu" path="res://Models (glb)/shellAmmo.glb" id="2_0ls7r"]
+[ext_resource type="Script" path="res://Scripts/AmmoPickup.gd" id="2_pp5c3"]
+[ext_resource type="AudioStream" uid="uid://yhwn040ncft3" path="res://SFX/Guns/Pickup.wav" id="4_llqg7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2nefi"]
+size = Vector3(0.6, 0.6, 0.6)
+
+[node name="ShotgunShells" instance=ExtResource("1_bihye")]
+
+[node name="MeshInstance3D" parent="." index="1"]
+mesh = null
+
+[node name="StaticBody3D" parent="MeshInstance3D" index="0" node_paths=PackedStringArray("interact_sound")]
+script = ExtResource("2_pp5c3")
+ammo_amount = 4
+ammo_key = "shotgun"
+item_name = "Shotgun Shells"
+interact_sound = NodePath("../../Interact Sound")
+
+[node name="shellAmmo" parent="MeshInstance3D/StaticBody3D" index="0" instance=ExtResource("2_0ls7r")]
+
+[node name="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" index="1"]
+shape = SubResource("BoxShape3D_2nefi")
+
+[node name="Interact Sound" parent="." index="2"]
+stream = ExtResource("4_llqg7")

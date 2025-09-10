@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://dewhf1qfal4y6"]
+
+[ext_resource type="PackedScene" uid="uid://3mn8ag57hbgo" path="res://Models (glb)/LMG.glb" id="1_h0w7r"]
+[ext_resource type="Script" path="res://Scripts/LMG.gd" id="2_id8on"]
+[ext_resource type="AudioStream" uid="uid://cmoa5h4aupytt" path="res://SFX/Guns/Shotgun/ShotgunShot.wav" id="4_4ob71"]
+[ext_resource type="PackedScene" uid="uid://p3ldmhyylwt3" path="res://Scenes/Effects/BulletEmission.tscn" id="4_8nkrl"]
+[ext_resource type="AudioStream" uid="uid://o8whibkjehpf" path="res://SFX/Guns/DryFire.wav" id="5_4mvel"]
+[ext_resource type="AudioStream" uid="uid://bo238mwbtntya" path="res://SFX/Guns/Shotgun/Reload.wav" id="6_eudgo"]
+
+[node name="LMG" instance=ExtResource("1_h0w7r")]
+script = ExtResource("2_id8on")
+bullet_impact = ExtResource("4_8nkrl")
+weapon_name = "LMG"
+fire_rate = 6.66
+loaded_ammo = 20
+reserve_ammo = 40
+max_ammo = 20
+damage = 25
+is_automatic = true
+weapon_range = 1000.0
+
+[node name="manBones" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0738012, -0.0205291, -0.388542)
+
+[node name="Skeleton3D" parent="manBones" index="0"]
+bones/0/position = Vector3(-0.0470587, -0.0646303, -0.1503)
+bones/0/rotation = Quaternion(-0.114977, -0.638764, 0.760477, 0.0208737)
+bones/2/position = Vector3(0.22575, 0.102898, -0.0737311)
+bones/2/rotation = Quaternion(0.0344821, -0.984149, 0.0691583, 0.159623)
+bones/4/rotation = Quaternion(0.0128975, 0.742951, 0.635567, 0.209553)
+bones/5/rotation = Quaternion(-0.570759, -0.396874, 0.588944, 0.412153)
+bones/6/rotation = Quaternion(-0.00251247, 8.26649e-05, 0.754713, 0.65605)
+bones/7/rotation = Quaternion(0.124604, 0.656322, -0.233244, 0.706621)
+bones/8/rotation = Quaternion(-0.102066, -0.160815, 0.754558, 0.627983)
+bones/9/rotation = Quaternion(-0.0239582, -0.00246524, -0.781629, 0.623278)
+bones/10/rotation = Quaternion(-0.0386314, -0.0550792, 0.174369, 0.98238)
+bones/11/rotation = Quaternion(0.0360734, 0.170384, 0.0718116, 0.982095)
+bones/12/rotation = Quaternion(-0.0782128, -0.021874, 0.496265, 0.864364)
+bones/13/rotation = Quaternion(0.107068, 0.123562, 0.436825, 0.884564)
+bones/14/rotation = Quaternion(-0.628651, 0.550372, 0.53223, -0.136449)
+bones/15/rotation = Quaternion(-0.564578, 0.402768, -0.587857, 0.416478)
+bones/16/rotation = Quaternion(0.00268297, -7.11834e-05, -0.793504, 0.608559)
+bones/17/rotation = Quaternion(-0.395765, 0.0293522, -0.145993, 0.906198)
+bones/18/position = Vector3(0.0109011, 0.00705491, -0.0273535)
+bones/18/rotation = Quaternion(0.0785407, 0.249156, -0.577781, 0.773254)
+bones/19/rotation = Quaternion(-0.0237699, -0.00388377, 0.591493, 0.80595)
+bones/20/rotation = Quaternion(-0.0605222, 0.0293755, -0.629689, 0.773929)
+bones/21/rotation = Quaternion(0.114308, -0.131399, -0.539912, 0.823507)
+bones/22/rotation = Quaternion(0.00629496, -0.02965, -0.257975, 0.965676)
+bones/23/rotation = Quaternion(0.0719984, -0.146789, -0.196692, 0.966738)
+bones/24/position = Vector3(0.18269, 0.129249, -0.107121)
+bones/24/rotation = Quaternion(0.174031, 0.833101, 0.513936, -0.107359)
+bones/25/rotation = Quaternion(-0.758291, 5.23948e-09, -2.68425e-07, 0.651916)
+bones/26/rotation = Quaternion(-0.0500403, 3.15366e-14, -1.94864e-08, 0.998747)
+
+[node name="ammo rifle" parent="manBones/Skeleton3D" index="0"]
+transform = Transform3D(0.393315, 0.0745781, -0.916374, 0.237479, 0.954641, 0.17962, 0.888204, -0.288267, 0.357764, 0.244333, 0.279324, -0.0119534)
+
+[node name="ammo rifle" parent="manBones/Skeleton3D/ammo rifle" index="0"]
+layers = 2
+
+[node name="Cube_001" parent="manBones/Skeleton3D" index="1"]
+layers = 2
+
+[node name="mendozaRM2" parent="manBones/Skeleton3D" index="2"]
+layers = 2
+
+[node name="barrel" type="RayCast3D" parent="." index="2"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.135683, 0.112523, -1.26712)
+target_position = Vector3(0, 0, 0.5)
+
+[node name="shoot" type="AudioStreamPlayer3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0738012, -0.0205291, -0.175623)
+stream = ExtResource("4_4ob71")
+pitch_scale = 2.0
+
+[node name="altFire" type="AudioStreamPlayer3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0738012, -0.0205291, -0.175623)
+
+[node name="dryfire" type="AudioStreamPlayer3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0738012, -0.0205291, -0.175623)
+stream = ExtResource("5_4mvel")
+
+[node name="reload" type="AudioStreamPlayer3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0738012, -0.0205291, -0.175623)
+stream = ExtResource("6_eudgo")

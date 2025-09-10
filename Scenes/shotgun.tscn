@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpu3nlq8k4ao4"]
+
+[ext_resource type="PackedScene" uid="uid://x5dmb7murynr" path="res://Models (glb)/double barreled shotgun.glb" id="1_yh1ly"]
+[ext_resource type="Script" path="res://Scripts/Shotgun.gd" id="2_mmn6d"]
+[ext_resource type="PackedScene" uid="uid://jt4tiiij2nev" path="res://Scenes/Bullet.tscn" id="3_k53go"]
+[ext_resource type="AudioStream" uid="uid://cmoa5h4aupytt" path="res://SFX/Guns/Shotgun/ShotgunShot.wav" id="4_eyiys"]
+[ext_resource type="AudioStream" uid="uid://o8whibkjehpf" path="res://SFX/Guns/DryFire.wav" id="5_1bl1h"]
+[ext_resource type="AudioStream" uid="uid://cn5mr48gqbmfx" path="res://SFX/Guns/Shotgun/Open Breach.wav" id="6_iqw5e"]
+
+[node name="double barreled shotgun" instance=ExtResource("1_yh1ly")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("2_mmn6d")
+MIN_pellets_per_shot = 8
+MAX_pellets_per_shot = 9
+spread_angle = 6.0
+bullet_scene = ExtResource("3_k53go")
+fire_rate = 1.5
+loaded_ammo = 2
+reserve_ammo = 4
+max_ammo = 2
+damage = 10
+is_automatic = null
+blocking_animations = null
+
+[node name="Skeleton3D" parent="gunbones" index="0"]
+bones/0/rotation = Quaternion(0.488837, 2.04242e-07, 4.32848e-07, 0.872375)
+bones/1/rotation = Quaternion(0.271202, 0.000839072, 0.000236384, 0.962522)
+
+[node name="doubleShotgun" parent="gunbones/Skeleton3D" index="0"]
+layers = 2
+
+[node name="barrel" type="RayCast3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00100001, 0.08, 0.233488)
+target_position = Vector3(0, 0, 0.5)
+hit_from_inside = true
+
+[node name="altShoot" type="AudioStreamPlayer3D" parent="." index="3"]
+stream = ExtResource("4_eyiys")
+pitch_scale = 0.5
+
+[node name="shoot" type="AudioStreamPlayer3D" parent="." index="4"]
+stream = ExtResource("4_eyiys")
+
+[node name="dryfire" type="AudioStreamPlayer3D" parent="." index="5"]
+stream = ExtResource("5_1bl1h")
+
+[node name="reload" type="AudioStreamPlayer3D" parent="." index="6"]
+stream = ExtResource("6_iqw5e")

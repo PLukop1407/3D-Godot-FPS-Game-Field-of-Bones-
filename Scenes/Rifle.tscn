@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cg3umaxqjgsbd"]
+
+[ext_resource type="PackedScene" uid="uid://dsa0wvgfg44bi" path="res://Models (glb)/winchester model 70.glb" id="1_22wsr"]
+[ext_resource type="Script" path="res://Scripts/Rifle.gd" id="2_2rejd"]
+[ext_resource type="AudioStream" uid="uid://cmoa5h4aupytt" path="res://SFX/Guns/Shotgun/ShotgunShot.wav" id="4_p0rlk"]
+[ext_resource type="AudioStream" uid="uid://o8whibkjehpf" path="res://SFX/Guns/DryFire.wav" id="5_ebw4j"]
+[ext_resource type="AudioStream" uid="uid://cn5mr48gqbmfx" path="res://SFX/Guns/Shotgun/Open Breach.wav" id="6_wugeq"]
+
+[node name="winchester model 70" instance=ExtResource("1_22wsr")]
+script = ExtResource("2_2rejd")
+weapon_name = "Rifle"
+loaded_ammo = 5
+reserve_ammo = 10
+max_ammo = 5
+damage = 70
+
+[node name="Plane" parent="." index="0"]
+transform = Transform3D(6.95578e-09, -0.116699, -1.90126e-08, -0.116699, -1.39116e-08, -1.90126e-08, 1.90126e-08, 1.90126e-08, -0.116699, -0.0936566, 0, -0.699611)
+layers = 2
+
+[node name="barrel" type="RayCast3D" parent="." index="1"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0934083, 0.13177, -0.971228)
+target_position = Vector3(0, 0, 0.5)
+hit_from_inside = true
+
+[node name="shoot" type="AudioStreamPlayer3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0936566, 0, -0.699611)
+stream = ExtResource("4_p0rlk")
+
+[node name="dryfire" type="AudioStreamPlayer3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0936566, 0, -0.699611)
+stream = ExtResource("5_ebw4j")
+
+[node name="reload" type="AudioStreamPlayer3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0936566, 0, -0.699611)
+stream = ExtResource("6_wugeq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]

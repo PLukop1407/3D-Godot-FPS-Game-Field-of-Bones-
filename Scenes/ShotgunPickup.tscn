@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://wq536tgupo7q"]
+
+[ext_resource type="PackedScene" uid="uid://cdr1s8ay0m70u" path="res://Scenes/Item.tscn" id="1_gwpnr"]
+[ext_resource type="PackedScene" uid="uid://ck234xk2gpkqu" path="res://Models (glb)/shotgun.glb" id="2_usttq"]
+[ext_resource type="Script" path="res://Scripts/WeaponPickup.gd" id="3_nq2kf"]
+[ext_resource type="PackedScene" uid="uid://ibxxjfimr4qn" path="res://Scenes/new_shotgun.tscn" id="4_p1eh5"]
+[ext_resource type="AudioStream" uid="uid://yhwn040ncft3" path="res://SFX/Guns/Pickup.wav" id="5_t03tm"]
+
+[node name="ShotgunItem" instance=ExtResource("1_gwpnr")]
+
+[node name="Label3D" parent="." index="0"]
+transform = Transform3D(-0.0124962, 0, 0.999922, 0, 1, 0, -0.999922, 0, -0.0124962, 0, 0.329735, 0)
+
+[node name="MeshInstance3D" parent="." index="1"]
+mesh = null
+
+[node name="shotgun" parent="MeshInstance3D" index="0" instance=ExtResource("2_usttq")]
+
+[node name="StaticBody3D" parent="MeshInstance3D" index="1" node_paths=PackedStringArray("interact_sound")]
+script = ExtResource("3_nq2kf")
+weapon = ExtResource("4_p1eh5")
+item_name = "shotgun"
+interact_sound = NodePath("../../Interact Sound")
+
+[node name="Interact Sound" parent="." index="2"]
+stream = ExtResource("5_t03tm")

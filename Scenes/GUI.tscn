@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://cu3mc7eskiv34"]
+
+[ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_2owpg"]
+[ext_resource type="Script" path="res://Scripts/HP.gd" id="2_asvkt"]
+
+[sub_resource type="SystemFont" id="SystemFont_iyngj"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_46ftm"]
+font = SubResource("SystemFont_iyngj")
+font_size = 48
+
+[sub_resource type="SystemFont" id="SystemFont_tel54"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_rcc2d"]
+font = SubResource("SystemFont_tel54")
+font_size = 48
+
+[node name="UI" type="CanvasLayer"]
+layer = 0
+
+[node name="UIRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HUD" type="Label" parent="UIRoot"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -67.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "/"
+label_settings = SubResource("LabelSettings_46ftm")
+horizontal_alignment = 1
+vertical_alignment = 2
+clip_text = true
+script = ExtResource("1_2owpg")
+
+[node name="HP" type="Label" parent="UIRoot"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -67.0
+offset_right = 126.0
+grow_vertical = 0
+text = "0HP"
+label_settings = SubResource("LabelSettings_rcc2d")
+script = ExtResource("2_asvkt")
+
+[node name="Label" type="Label" parent="UIRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1

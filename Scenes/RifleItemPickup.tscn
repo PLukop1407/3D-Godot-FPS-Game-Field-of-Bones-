@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://cs5pje5kvksp2"]
+
+[ext_resource type="PackedScene" uid="uid://cdr1s8ay0m70u" path="res://Scenes/Item.tscn" id="1_4wsx2"]
+[ext_resource type="PackedScene" uid="uid://dsa0wvgfg44bi" path="res://Models (glb)/winchester model 70.glb" id="2_5geoh"]
+[ext_resource type="Script" path="res://Scripts/WeaponPickup.gd" id="3_iwr4q"]
+[ext_resource type="PackedScene" uid="uid://cg3umaxqjgsbd" path="res://Scenes/Rifle.tscn" id="4_ty2p4"]
+[ext_resource type="AudioStream" uid="uid://yhwn040ncft3" path="res://SFX/Guns/Pickup.wav" id="5_v3vhg"]
+
+[node name="RifleItem" instance=ExtResource("1_4wsx2")]
+
+[node name="Label3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500316, 0)
+
+[node name="MeshInstance3D" parent="." index="1"]
+mesh = null
+
+[node name="winchester model 70" parent="MeshInstance3D" index="0" instance=ExtResource("2_5geoh")]
+
+[node name="StaticBody3D" parent="MeshInstance3D" index="1" node_paths=PackedStringArray("interact_sound")]
+script = ExtResource("3_iwr4q")
+weapon = ExtResource("4_ty2p4")
+item_name = "rifle"
+interact_sound = NodePath("../../Interact Sound")
+
+[node name="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0088501, 0.088998, 0.0396118)
+
+[node name="Interact Sound" parent="." index="2"]
+stream = ExtResource("5_v3vhg")
