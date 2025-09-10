@@ -83,7 +83,7 @@ Currently, the prototype focuses on building and testing core gameplay systems b
 3. Run the Main scene
 
 ## Credits
-- **Patrikas Lukosius** - Core programming (movement, inventory, AI), project setup and managing
+- **Patrikas Lukosius** - Core programming (movement, inventory, AI), project setup and project management
 - **Boz Squires** - 3D modelling, animation, textures
 - **Robin Gairdner** - Sound design, sound implementation, composer
 
